@@ -1,0 +1,19 @@
+{
+  "name": "navigation-with-moving-line",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vorbert-Kruk/navigation-with-moving-line.git"
+  },
+  "author": "Norbert Kruk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vorbert-Kruk/navigation-with-moving-line/issues"
+  },
+  "homepage": "https://github.com/Vorbert-Kruk/navigation-with-moving-line#readme"
+}
