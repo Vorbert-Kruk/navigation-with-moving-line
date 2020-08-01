@@ -12,16 +12,6 @@ const setLinkInactive = link => link.classList.remove(activeLinkClassName);
 
 const getItemDimentions = item => item && item.getBoundingClientRect();
 
-navLinks.forEach(navLink => {
-  navLink.addEventListener('click', () => {
-    const currentlyActiveLink = getActiveLink();
-    setLinkInactive(currentlyActiveLink);
-
-    setLinkActive(navLink);
-    moveLineToItem(navLink);
-  });
-});
-
 const moveLineToItem = item => {
   const linkOffset = item.offsetLeft;
   const linkWidth = item.scrollWidth;
@@ -33,3 +23,13 @@ const relocateLine = (leftOffset, width) => {
   navLine.style.transform = `translateX(${leftOffset}px)`;
   navLine.style.width = `${width}px`;
 };
+
+navLinks.forEach(navLink => {
+  navLink.addEventListener('click', () => {
+    const currentlyActiveLink = getActiveLink();
+    setLinkInactive(currentlyActiveLink);
+
+    setLinkActive(navLink);
+    moveLineToItem(navLink);
+  });
+});
