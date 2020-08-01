@@ -24,6 +24,9 @@ const relocateLine = (leftOffset, width) => {
   navLine.style.width = `${width}px`;
 };
 
+const activeLinkOnPageLoad = getActiveLink();
+activeLinkOnPageLoad && moveLineToItem(activeLinkOnPageLoad);
+
 navLinks.forEach(navLink => {
   navLink.addEventListener('click', () => {
     const currentlyActiveLink = getActiveLink();
@@ -31,5 +34,14 @@ navLinks.forEach(navLink => {
 
     setLinkActive(navLink);
     moveLineToItem(navLink);
+  });
+
+  navLink.addEventListener('mouseover', () => {
+    moveLineToItem(navLink);
+  });
+
+  navLink.addEventListener('mouseout', () => {
+    const currentlyActiveLink = getActiveLink();
+    moveLineToItem(currentlyActiveLink);
   });
 });
