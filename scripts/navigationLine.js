@@ -20,8 +20,7 @@ const moveLineToItem = item => {
 };
 
 const relocateLine = (leftOffset, width) => {
-  navLine.style.transform = `translateX(${leftOffset}px)`;
-  navLine.style.width = `${width}px`;
+  navLine.style.transform = `translateX(${leftOffset}px) scaleX(${width})`;
 };
 
 const activeLinkOnPageLoad = getActiveLink();

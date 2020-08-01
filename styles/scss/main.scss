@@ -56,10 +56,11 @@ a {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 207.45px;
+    width: 1px;
     height: 0.4rem;
     border-radius: 1rem;
     background-color: $accent;
+    transform-origin: left;
     transition: all 250ms ease;
   }
 }
