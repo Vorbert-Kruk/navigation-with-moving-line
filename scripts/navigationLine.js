@@ -13,17 +13,21 @@ const setLinkInactive = link => link.classList.remove(activeLinkClassName);
 const getItemDimentions = item => item && item.getBoundingClientRect();
 
 navLinks.forEach(navLink => {
-  navLink.addEventListener('click', event => {
+  navLink.addEventListener('click', () => {
     const currentlyActiveLink = getActiveLink();
     setLinkInactive(currentlyActiveLink);
 
     setLinkActive(navLink);
-    const linkOffset = navLink.offsetLeft;
-    const linkWidth = navLink.scrollWidth;
-
-    relocateLine(linkOffset, linkWidth);
+    moveLineToItem(navLink);
   });
 });
+
+const moveLineToItem = item => {
+  const linkOffset = item.offsetLeft;
+  const linkWidth = item.scrollWidth;
+
+  relocateLine(linkOffset, linkWidth);
+};
 
 const relocateLine = (leftOffset, width) => {
   navLine.style.transform = `translateX(${leftOffset}px)`;
