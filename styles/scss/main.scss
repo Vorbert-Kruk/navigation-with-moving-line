@@ -37,7 +37,8 @@ a {
       transition: all 250ms ease;
     }
 
-    #{$nav-selector}:hover & {
+    #{$nav-selector}:hover &,
+    #{$nav-selector}:focus-within & {
       opacity: 0.3;
     }
 
@@ -53,14 +54,28 @@ a {
   }
 
   &--line {
+    $transition-duration: 350ms;
+
     position: absolute;
     left: 0;
     bottom: 0;
     width: 1px;
     height: 0.4rem;
-    border-radius: 1rem;
+    border-radius: 3rem;
     background-color: $accent;
     transform-origin: left;
-    transition: all 250ms ease;
+    transition: all $transition-duration ease;
+
+    animation: line-appearing $transition-duration ease-out forwards;
+  }
+}
+
+@keyframes line-appearing {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

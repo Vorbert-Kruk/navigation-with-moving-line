@@ -39,6 +39,15 @@ navLinks.forEach(navLink => {
     moveLineToItem(navLink);
   });
 
+  navLink.addEventListener('focus', () => {
+    moveLineToItem(navLink);
+  });
+
+  navLink.addEventListener('blur', () => {
+    const currentlyActiveLink = getActiveLink();
+    moveLineToItem(currentlyActiveLink);
+  });
+
   navLink.addEventListener('mouseout', () => {
     const currentlyActiveLink = getActiveLink();
     moveLineToItem(currentlyActiveLink);
