@@ -1,7 +1,7 @@
 const navClassName = 'nav';
-const navLinkClassName = `${navClassName}--link`;
-const navLineClassName = `${navClassName}--line`;
-const activeLinkClassName = `${navLinkClassName}_active`;
+const navLinkClassName = `${navClassName}__link`;
+const navLineClassName = `${navClassName}__line`;
+const activeLinkClassName = `${navLinkClassName}--active`;
 
 const navLine = document.querySelector(`.${navLineClassName}`);
 const navLinks = document.querySelectorAll(`.${navLinkClassName}`);
@@ -23,6 +23,10 @@ const relocateLine = (leftOffset, width) => {
   navLine.style.transform = `translateX(${leftOffset}px) scaleX(${width})`;
 };
 
+HTMLElement.prototype.addEventListeners = function (events = [], callback = () => {}) {
+  events.forEach(event => this.addEventListener(event, callback));
+};
+
 const activeLinkOnPageLoad = getActiveLink();
 activeLinkOnPageLoad && moveLineToItem(activeLinkOnPageLoad);
 
@@ -35,20 +39,11 @@ navLinks.forEach(navLink => {
     moveLineToItem(navLink);
   });
 
-  navLink.addEventListener('mouseover', () => {
+  navLink.addEventListeners(['mouseover', 'focus'], () => {
     moveLineToItem(navLink);
   });
 
-  navLink.addEventListener('focus', () => {
-    moveLineToItem(navLink);
-  });
-
-  navLink.addEventListener('blur', () => {
-    const currentlyActiveLink = getActiveLink();
-    moveLineToItem(currentlyActiveLink);
-  });
-
-  navLink.addEventListener('mouseout', () => {
+  navLink.addEventListeners(['blur', 'mouseout'], () => {
     const currentlyActiveLink = getActiveLink();
     moveLineToItem(currentlyActiveLink);
   });
