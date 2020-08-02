@@ -18,7 +18,6 @@ body {
 a {
   color: $light;
   text-decoration: none;
-  font-size: 3rem;
 }
 
 .nav {
@@ -33,7 +32,8 @@ a {
   &__link {
     & {
       display: inline-block;
-      padding: 0.75rem 1rem;
+      font-size: 2rem;
+      padding: 0.4em 0.5em;
       transition: all 250ms ease;
     }
 
@@ -60,7 +60,7 @@ a {
     left: 0;
     bottom: 0;
     width: 1px;
-    height: 0.4rem;
+    height: 0.35rem;
     border-radius: 3rem;
     background-color: $accent;
     transform-origin: left;
